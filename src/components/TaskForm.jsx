@@ -12,6 +12,10 @@ const TaskForm = ({ createTask }) => {
     createTask(newTask);
 
     event.preventDefault();
+
+    // read https://developer.mozilla.org/ru/docs/Web/API/Window
+    // and https://developer.mozilla.org/ru/docs/Web/API/History
+    window.history.back();
   };
   const [taskTitle, setTaskTitle] = React.useState();
   const [taskDescription, setTaskDescription] = React.useState();
