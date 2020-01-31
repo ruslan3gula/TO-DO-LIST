@@ -1,17 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 
 export const TaskList = ({ tasks }) => {
   return (
     <div>
-      <ul>
+      <Link to={"/create-task"}>
+        <button>Add tas</button>
+      </Link>
+      <List>
         {tasks.map(task => (
-          <li>
-            <h1>{task.title}</h1>
-            <h2>{task.description}</h2>
-            <h3>{task.date}</h3>
-          </li>
+          <ListItem dense button>
+            {task.title}
+            {task.description}
+            {task.date}
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </div>
   );
 };

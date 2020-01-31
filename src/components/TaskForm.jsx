@@ -1,12 +1,15 @@
 import React from "react";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 const TaskForm = ({ createTask }) => {
   const myHandler = event => {
-    createTask({
+    const newTask = {
       title: taskTitle,
       description: taskDescription,
       date: taskDate
-    });
+    };
+    createTask(newTask);
 
     event.preventDefault();
   };
@@ -16,7 +19,10 @@ const TaskForm = ({ createTask }) => {
   return (
     <div>
       <form onSubmit={myHandler}>
-        <input
+        <TextField
+          variant="outlined"
+          placeholder="Add todo"
+          margin="normal"
           onChange={event => {
             event.persist();
             setTaskTitle(() => {
@@ -28,7 +34,10 @@ const TaskForm = ({ createTask }) => {
           label="Title"
         />
 
-        <input
+        <TextField
+          variant="outlined"
+          placeholder="Description"
+          margin="normal"
           onChange={event => {
             event.persist();
             setTaskDescription(() => {
@@ -39,7 +48,9 @@ const TaskForm = ({ createTask }) => {
           defaultValue={taskDescription}
           label="Description"
         />
-        <input
+        <TextField
+          variant="outlined"
+          margin="normal"
           onChange={event => {
             event.persist();
             setTaskDate(() => {
@@ -48,10 +59,12 @@ const TaskForm = ({ createTask }) => {
           }}
           id="date"
           defaultValue={taskDate}
-          label="Date"
           type="date"
         />
-        <button type="submit">Submit</button>
+
+        <Button variant="outlined" type="submit">
+          Default
+        </Button>
       </form>
     </div>
   );
