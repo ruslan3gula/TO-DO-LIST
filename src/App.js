@@ -17,6 +17,7 @@ function App() {
 
   const [tasks, setTasks] = useState([
     {
+      id: 1,
       title: "title",
       description: "dex",
       date: "09-09-999"

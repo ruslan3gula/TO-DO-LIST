@@ -1,10 +1,12 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { uuid } from "uuidv4";
 
 const TaskForm = ({ createTask }) => {
   const myHandler = event => {
     const newTask = {
+      id: uuid(),
       title: taskTitle,
       description: taskDescription,
       date: taskDate
