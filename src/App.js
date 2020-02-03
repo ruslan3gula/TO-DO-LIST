@@ -24,11 +24,16 @@ function App() {
     }
   ]);
 
+  const deleteTask = (key, e) => {
+    const newTasks = Object.assign([], tasks);
+    newTasks.splice(key, 1);
+    setTasks(newTasks);
+  };
   return (
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <TaskList tasks={tasks} />
+          <TaskList tasks={tasks} deleteTask={deleteTask} />
         </Route>
 
         <Route path="/create-task">

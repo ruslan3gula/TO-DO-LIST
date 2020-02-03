@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -9,7 +9,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Button from "@material-ui/core/Button";
 import { uuid } from "uuidv4";
 
-export const TaskList = ({ tasks }) => {
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
+
+export const TaskList = ({ tasks, deleteTask }) => {
   return (
     <div>
       <Link to={"/create-task"}>
@@ -27,6 +31,14 @@ export const TaskList = ({ tasks }) => {
             <ListItemText primary={task.title} />
             <ListItemText secondary={task.description} />
             <ListItemText secondary={task.date} />
+            <ListItemSecondaryAction>
+              <IconButton
+                aria-label="Delete"
+                onClick={() => deleteTask(task.id)}
+              >
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
           </ListItem>
         ))}
       </List>
