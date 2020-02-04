@@ -24,7 +24,7 @@ function App() {
     }
   ]);
 
-  const deleteTask = (key, e) => {
+  const deleteTask = key => {
     const newTasks = Object.assign([], tasks);
     newTasks.splice(key, 1);
     setTasks(newTasks);
